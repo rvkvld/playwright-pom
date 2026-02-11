@@ -1,0 +1,21 @@
+# Maven
+target/
+*.log
+
+# Allure (if you ever store locally; usually not committed)
+allure-results/
+allure-report/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+out/
+
+# macOS
+.DS_Store
+
+# (Optional) Playwright downloads / traces
+playwright/.cache/
+**/trace.zip
+**/*.webm
+**/*.zip
