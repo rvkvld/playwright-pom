@@ -146,7 +146,6 @@
                 <configuration>
                     <!-- Use built-in Google rules (no extra file needed) -->
                     <configLocation>google_checks.xml</configLocation>
-                    <encoding>${project.build.sourceEncoding}</encoding>
                     <consoleOutput>true</consoleOutput>
                     <failsOnError>true</failsOnError>
                     <!-- Optional: ignore generated/target -->
