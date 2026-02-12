@@ -26,6 +26,9 @@ jobs:
           java-version: "17"
           cache: maven
 
+      - name: Install Playwright system dependencies
+        run: sudo mvn -q exec:java -Dexec.mainClass=com.microsoft.playwright.CLI -Dexec.args="install-deps"
+
       - name: Install Playwright browsers
         run: mvn -q exec:java -Dexec.mainClass=com.microsoft.playwright.CLI -Dexec.args="install chromium"
 
@@ -40,14 +43,6 @@ jobs:
         with:
           name: surefire-reports
           path: target/surefire-reports/
-          if-no-files-found: warn
-
-      - name: Upload Allure results
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: allure-results
-          path: target/allure-results/
           if-no-files-found: warn
 
       - name: Generate Allure HTML report
