@@ -1,7 +1,7 @@
-package com.epam.tests;
+package com.company.tests;
 
-import com.epam.config.TestConfig;
-import com.epam.pages.CartPage;
+import com.company.config.TestConfig;
+import com.company.pages.CartPage;
 import com.microsoft.playwright.*;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.*;

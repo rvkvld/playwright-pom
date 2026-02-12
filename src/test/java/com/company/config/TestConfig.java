@@ -1,4 +1,4 @@
-package com.epam.config;
+package com.company.config;
 
 import java.io.IOException;
 import java.io.InputStream;

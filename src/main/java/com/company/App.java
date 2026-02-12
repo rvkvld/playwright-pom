@@ -1,4 +1,4 @@
-package com.epam;
+package com.company;
 
 import lombok.extern.slf4j.Slf4j;
 
