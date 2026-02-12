@@ -37,18 +37,10 @@ mvn clean install
 mvn test
 
 # Run a single test class with logs
-mvn -Dtest=com.epam.tests.CartTests test
+mvn clean test -Dtest=com.company.tests.CartTests
 
-# Run a single test in headful mode (shows browser window) and with logs
-HEADLESS=false mvn -Dtest=com.epam.tests.CartTests test
-```
-
-## Running Tests
-
-To run the tests, use the following command:
-
-```bash
-mvn test
+# Run tests in headful mode (shows browser window) and with logs
+mvn clean test -Dheadless=false -Dtest=CartTests
 ```
 
 ### End of Document
