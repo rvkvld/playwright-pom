@@ -25,7 +25,8 @@ public class CartTests {
 
   @BeforeAll
   static void setupClass() {
-    boolean headless = Boolean.parseBoolean(System.getenv().getOrDefault("HEADLESS", "true"));
+
+    boolean headless = TestConfig.headless();
     log.info("Starting Playwright. Headless mode: {}", headless);
     playwright = Playwright.create();
     browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(headless));

@@ -3,14 +3,17 @@ package com.company.config;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
+import lombok.extern.slf4j.Slf4j;
 
 /** Utility for loading test configuration from properties files and system properties. */
+@Slf4j
 public final class TestConfig {
   private static final Properties PROPS = new Properties();
 
   static {
     String env = System.getProperty("env", "dev"); // default dev
     String path = "config/" + env + ".properties";
+    log.info("Loading config from: {}", env);
 
     try (InputStream is = TestConfig.class.getClassLoader().getResourceAsStream(path)) {
       if (is == null) {
@@ -40,10 +43,9 @@ public final class TestConfig {
     return Integer.parseInt(sysOrProp("timeoutMs"));
   }
 
-    public static String email() {
-        return System.getenv().getOrDefault("EMAIL",
-                PROPS.getProperty("email"));
-    }
+  public static String email() {
+    return System.getenv().getOrDefault("EMAIL", PROPS.getProperty("email"));
+  }
 
   // System properties override file values
   private static String sysOrProp(String key) {
