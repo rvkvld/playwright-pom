@@ -30,6 +30,8 @@ jobs:
         run: mvn -q exec:java -Dexec.mainClass=com.microsoft.playwright.CLI -Dexec.args="install chromium"
 
       - name: Run tests
+        env:
+          EMAIL: ${{ secrets.TEST_EMAIL }}
         run: mvn -B clean test -Denv=qa -Dheadless=true
 
       - name: Upload Surefire test reports
