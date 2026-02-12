@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
+/** Utility for loading test configuration from properties files and system properties. */
 public final class TestConfig {
   private static final Properties PROPS = new Properties();
 
@@ -12,7 +13,9 @@ public final class TestConfig {
     String path = "config/" + env + ".properties";
 
     try (InputStream is = TestConfig.class.getClassLoader().getResourceAsStream(path)) {
-      if (is == null) throw new IllegalStateException("Config not found: " + path);
+      if (is == null) {
+        throw new IllegalStateException("Config not found: " + path);
+      }
       PROPS.load(is);
     } catch (IOException e) {
       throw new RuntimeException("Failed to load config: " + path, e);
@@ -35,6 +38,10 @@ public final class TestConfig {
 
   public static int timeoutMs() {
     return Integer.parseInt(sysOrProp("timeoutMs"));
+  }
+
+  public static String email() {
+    return sysOrProp("email");
   }
 
   // System properties override file values

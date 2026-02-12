@@ -2,9 +2,17 @@ package com.company.tests;
 
 import com.company.config.TestConfig;
 import com.company.pages.CartPage;
-import com.microsoft.playwright.*;
+import com.microsoft.playwright.Browser;
+import com.microsoft.playwright.BrowserContext;
+import com.microsoft.playwright.BrowserType;
+import com.microsoft.playwright.Page;
+import com.microsoft.playwright.Playwright;
 import lombok.extern.slf4j.Slf4j;
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 @Slf4j
 public class CartTests {
@@ -49,7 +57,7 @@ public class CartTests {
     cartPage.open(TestConfig.baseUrl());
     cartPage.assertCartIsEmpty();
 
-    cartPage.subscribe("abc@mail.com");
+    cartPage.subscribe(TestConfig.email());
     cartPage.assertSubscriptionSuccess();
     log.info("Test: userCanSubscribeFromEmptyCart finished");
   }
