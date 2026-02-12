@@ -40,9 +40,10 @@ public final class TestConfig {
     return Integer.parseInt(sysOrProp("timeoutMs"));
   }
 
-  public static String email() {
-    return sysOrProp("email");
-  }
+    public static String email() {
+        return System.getenv().getOrDefault("EMAIL",
+                PROPS.getProperty("email"));
+    }
 
   // System properties override file values
   private static String sysOrProp(String key) {

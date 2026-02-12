@@ -56,7 +56,7 @@ public class CartPage {
    * @param email email address to subscribe with
    */
   public void subscribe(String email) {
-    log.info("Subscribing with email: {}", email);
+    log.info("Subscribing with email");
     emailInput.fill(email);
     subscribeButton.click();
   }
